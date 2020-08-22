@@ -1,0 +1,37 @@
+
+<div class='container'>
+    <a href='/'><i class='fas fa-arrow-left'></i></a>
+    <% if @question.errors.any? %>
+        <div id="error_explanation">
+            <h2>
+                <%= pluralize(@question.errors.count, "error") %> prohibited this question from being saved:
+            </h2>
+            <ul>
+                <% @question.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+    <div class='card-item bg-light m-4'>
+    <%= form_with(model: @question, local: true) do |form| %>
+        <%= token_tag nil %>
+        <p class='m-4'>
+            <%= form.label :title, :class => 'font-weight-bold'%><br>
+            <%= form.text_field :title, :class => 'form-control' %>
+        </p>
+        
+            <hr class='bg-dark'>
+        <p class='m-4'>
+            <%= form.label :description, :class => 'font-weight-bold' %><br>
+            <%= form.text_area :description, :class => 'form-control' %>
+        </p>
+        
+        <p class='m-4'>
+            <%= form.submit :class => 'btn btn-primary float-right' %>
+        </p>
+    
+    <% end %>
+    </div>
+    
+</div>

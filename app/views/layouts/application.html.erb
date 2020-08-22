@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Curiousite</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <!-- Con estas 2 líneas llamamos a los archivos CSS y Javascript de Bootstrap y demás -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="js/bootstrap.min.js" rel="stylesheet">
+ 
+    <link href="https://getbootstrap.com/docs/4.0/examples/jumbotron/jumbotron.css" rel="stylesheet"> 
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+  </head>
+  
+  <body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-success fixed-top">
+    <a class="navbar-brand" href='/'>Curiousite</a>
+  </nav>
+  <div class='container'>
+    <%= yield %>
+  </div>
+  </body>
+</html>

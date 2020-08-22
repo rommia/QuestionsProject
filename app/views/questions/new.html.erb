@@ -1,0 +1,26 @@
+
+<div class="header">
+    <div class="text-center m-4">
+        <h2>New question</h2>
+    </div>
+</div>
+<div class="container text-center">
+    <div class='form-group border border-dark m-4'>
+        <%= form_with scope: :question, url: questions_path, local: true do |form|%>
+            <%= token_tag nil %>
+            <p class='m-4'>
+                <%= form.label :title, :class=>'float-left font-weight-bold' %><br>
+                <%= form.text_field :title, :placeholder => 'Title', :class => 'form-control' %>
+            </p>
+            <p class='m-4'>
+                <%= form.label :description, :class=>'font-weight-bold float-left' %><br>
+                <%= form.text_area :description, :placeholder => 'Description', :class => 'form-control' %>
+            </p>
+            
+            <p>
+                <%= form.submit :class => 'btn btn-primary'%>
+            </p>
+        
+        <% end %>
+    </div>
+</div>

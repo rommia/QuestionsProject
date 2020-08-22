@@ -1,0 +1,32 @@
+
+<div class='container'>
+    <div class='row mt-3 mb-2'>
+        <div class='col-6'>
+            <h1>All questions</h1>
+        </div>
+        <div class='col-6 mt-2'>
+            <a href='questions/new' class='btn btn-primary float-right'>New question</a>
+        </div>
+    </div>
+    <div class='card-group bg-success'>
+        <% @questions.each do |question| %>
+            <div class='card-item border bg-light border-dark m-4'>
+                <p class='float-right m-2'>
+                    <%= question.created_at.strftime("%m/%d/%Y") %>
+                </p>
+                <p class='m-2 font-weight-bold'>
+                    <%= question.title %>
+                </p>
+                <hr class='bg-dark'>
+                <p class='m-2'>
+                    <%= question.description %>
+                </p>
+                <div class='btn-group float-right'>
+                    <button class = 'btn btn-primary m-2'>Answer</button>
+                    <%= link_to 'Show', question_path(question), :class => 'btn btn-primary m-2' %>
+                    <%= link_to 'Edit', edit_question_path(question), :class => 'btn btn-primary m-2' %>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>

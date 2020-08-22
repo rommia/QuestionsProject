@@ -1,0 +1,23 @@
+
+<div class='container'>
+    <div class='card-item bg-light m-4'>
+        <p class='m-2 font-weight-bold'>
+            <h3 class='display-4'>
+                <%= @question.title %>
+            </h3>
+            <p class='ml-2'>
+                <%= @question.created_at.strftime("%m/%d/%Y") %>
+            </p>
+        </p>
+        <hr class='bg-dark'>
+        <p class='m-2'>
+            <%= @question.description %>
+        </p>
+        <div class='btn-group float-right'>
+            <button class = 'btn btn-primary m-2'>Answer</button>
+        <%= link_to 'Delete', question_path(@question), method: :delete,
+              data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger m-2' %>
+        </div>
+        
+    </div>
+</div>
