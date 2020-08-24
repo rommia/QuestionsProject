@@ -14,10 +14,37 @@
             <%= @question.description %>
         </p>
         <div class='btn-group float-right'>
-            <button class = 'btn btn-primary m-2'>Answer</button>
         <%= link_to 'Delete', question_path(@question), method: :delete,
-              data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger m-2' %>
+              data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger text-white m-2' %>
         </div>
         
     </div>
+    <div>
+            <%= form_with(model: [ @question, @question.answers.build ], local: true, :class => 'form bg-light m-4') do |form| %>
+                        
+                <h5>Add an answer:</h5>
+                <p>
+                    <%= form.text_area :content %>
+                </p>
+                <p>
+                    <%= form.submit :class => 'btn btn-primary' %>
+                </p>
+            <% end %>
+    </div>
+    <div>
+    <h4> <%= @question.answers.count %> answers  </h4>
+    
+        <% if @question.answers.exists?%>
+            <% @question.answers.each do |answer| %>
+            <div class='card'>
+                <p class='card-body'>
+                    <%= answer.content %>
+                </p>
+            </div>
+            <% end %>
+        <% else %>
+           <p>This question has no answers yet.</p> 
+        <% end %>
+    </div>
+
 </div>
